@@ -6,7 +6,9 @@ class Player():
     def printBoard(self):
         return 'player '+str(self.id)
     def decideGetSquare(self):
-        return True
+        decide=int(input())
+        return decide > 0
 
     def decideDirection(self):
-        return True
+        decide=int(input())
+        return decide > 0

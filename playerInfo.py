@@ -22,10 +22,17 @@ class PlayerInfo():
         self.__reverse = self.__reverse or self.__player.decideDirection()
         
     def decideGetSquare(self,square):
-        if self.__player.decideGetSquare():
-            self.__squares.append
+        if self.__player.decideGetSquare() and not square.isGet():
+            self.__squares.append(square)
+            square.getSquare()
+
     def isGoal(self):
         return self.__place <0 and self.__reverse
 
     def setPlace(self,place):
         self.__place = place
+
+    def calcPoint(self):
+        if self.isGoal():
+            return sum(map(lambda x:x.getPoint(),self.__squares))
+

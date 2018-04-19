@@ -22,10 +22,14 @@ class Board():
         return self.__squares
     def breathPlayer(self,playerNum):
         playerInfo = self.playerInfos[playerNum]
-        self.__oxygen -= playerInfo.getSquareNum
+        self.__oxygen -= playerInfo.getSquareNum()
     def decideDirectionPlayer(self,playerNum):
         playerInfo = self.playerInfos[playerNum]
         playerInfo.decideDirection()
+    def decideGetSquare(self,playerNum):
+        playerInfo = self.playerInfos[playerNum]
+        square = self.__squares[playerInfo.getPlace()]
+        playerInfo.decideGetSquare(square)
 
     def forwordPlayer(self,playerNum):
         playerInfo = self.playerInfos[playerNum]
